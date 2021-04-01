@@ -1,0 +1,12 @@
+<p class="font-weight-bold">List of Post titles:</p>
+<ul class="list-group">
+    <li 
+      *ngFor="let post of posts"
+      class="list-group-item">
+      <button class="btn btn-secondary btn-sm"
+      (click)="delete(post)">
+          Delete Post
+      </button>
+        {{ post.title }}
+    </li>
+</ul>

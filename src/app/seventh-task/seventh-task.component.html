@@ -1,0 +1,49 @@
+<p class="font-weight-bold">REGISTRATION PAGE</p>
+<form #f="ngForm" (ngSubmit)="submit(f.value)">
+    <div class="form-group">
+      <label for="name">User Name</label>
+      <input required minlength="3" ngModel name="name" #name="ngModel" type="text" id="name" class="form-control">
+      <div *ngIf="name.touched && name.invalid" class="alert alert-danger">
+        <div *ngIf="name.errors?.required">Name field is required.</div>
+        <div *ngIf="name.errors?.minlength">Name field should be at least {{ name.errors?.minlength.requiredLength }} characters.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="gender">Gender</label>
+      <select required ngModel name="gender" #gender="ngModel" id="gender" class="form-control">
+        <option *ngFor="let g of genderOptions" [value]="g.id">{{ g.name }}</option>
+      </select>
+      <div *ngIf="gender.touched && gender.invalid" class="alert alert-danger">
+        Category field is required.
+      </div>
+    </div>
+    <div class="form-group">
+        <label for="age">Age</label>
+        <input required ngModel name="age" #age="ngModel" type="number" id="age" class="form-control">
+        <div *ngIf="age.touched && age.invalid" class="alert alert-danger">
+          <div *ngIf="age.errors?.required">Age field is required.</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email">E-mail</label>
+        <input required ngModel name="email" #email="ngModel" type="email" id="email" class="form-control">
+        <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+          <div *ngIf="email.errors?.required">Email field is required.</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input required minlength="5" ngModel name="pswd" #pswd="ngModel" type="password" id="pswd" class="form-control">
+        <div *ngIf="pswd.touched && pswd.invalid" class="alert alert-danger">
+          <div *ngIf="pswd.errors?.required">Email field is required.</div>
+          <div *ngIf="name.errors?.minlength">Name field should be at least {{ name.errors?.minlength.requiredLength }} characters.</div>
+        </div>
+    </div>  
+    <div class="checkbox">
+      <label for="rememberMe">
+        <input ngModel name="rememberMe" type="checkbox" id="rememberMe">
+        Remember me
+      </label>
+    </div>
+    <button class="btn btn-primary" [disabled]="f.invalid">Sign Up</button>
+  </form>

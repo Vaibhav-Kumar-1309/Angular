@@ -1,0 +1,14 @@
+<br>
+<p>In parent component</p>
+<label for="task-count">Task count: </label>
+<input [(ngModel)]="taskCount" type="text">
+<p>Calling child component</p>
+<childsecondtask 
+    [taskCount]='taskCount'
+    (acknowledgement)="ackRecieved()">
+</childsecondtask>
+
+<br>
+<p>In parent component</p>
+<p *ngIf="!acknowledge" class="text-danger">Acknowledgement not recieved from parent component</p>
+<p *ngIf="acknowledge" class="text-success">Acknowledgement recieved from parent component</p>

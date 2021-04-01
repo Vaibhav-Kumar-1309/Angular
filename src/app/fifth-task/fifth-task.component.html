@@ -1,0 +1,8 @@
+<div class="personal-data">
+    <p class="font-weight-bold">Using pipes to display personal information</p>
+    <br>
+    <p>Name : {{ codeOwner.name | uppercase}}</p>
+    <p>Age : {{ codeOwner.age | number: '2.0-0'}}</p>
+    <p>Date of birth : {{ codeOwner.dob | date:'shortDate'}}</p>
+    <p>Hobbies : {{ codeOwner.randomData | summary:30}}</p>
+</div>
